@@ -1,0 +1,7 @@
+.navbar-style {
+  background-color: rgb(
+    0,
+    255,
+    191
+  ) !important ; /* we use important to override the default colour*/
+}
