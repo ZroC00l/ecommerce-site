@@ -5,3 +5,9 @@
     191
   ) !important ; /* we use important to override the default colour*/
 }
+
+.no-phone {
+  background-color: red;
+  width: 20%;
+  padding: 0.2rem;
+}

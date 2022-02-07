@@ -8,10 +8,42 @@ class MainContent extends Component {
     pageTitle: "Customers",
     customersCount: 5,
     customers: [
-      { id: 1, name: "Jane", phone: "788 - 2221" },
-      { id: 2, name: "James", phone: "789 - 2222" },
-      { id: 3, name: "Penny", phone: "790 - 3221" },
-      { id: 4, name: "Paul", phone: "791 - 3321" },
+      {
+        id: 1,
+        name: "Jane",
+        phone: "788 - 2221",
+        address: { city: "Pretoria" },
+      },
+      {
+        id: 2,
+        name: "James",
+        phone: "789 - 2222",
+        address: { city: "Johannesburg" },
+      },
+      {
+        id: 3,
+        name: "Penny",
+        phone: "",
+        address: { city: "Cape-Town" },
+      },
+      {
+        id: 4,
+        name: "Paul",
+        phone: "791 - 3321",
+        address: { city: "Polokwane" },
+      },
+      {
+        id: 5,
+        name: "Susan",
+        phone: "",
+        address: { city: "Kimberley" },
+      },
+      {
+        id: 6,
+        name: "Julian",
+        phone: null,
+        address: { city: "Durban" },
+      },
     ],
   };
 
@@ -27,14 +59,35 @@ class MainContent extends Component {
             Refresh
           </button>
         </h4>
+
         <table className="table">
           <thead>
             <tr>
               <td>#</td>
               <td>Name</td>
               <td>Phone</td>
+              <td>City</td>
             </tr>
           </thead>
+
+          <tbody>
+            {this.state.customers.map((cust) => {
+              return (
+                <tr key={cust.id}>
+                  <td>{cust.id}</td>
+                  <td>{cust.name}</td>
+                  <td>
+                    {cust.phone == null || cust.phone === "" ? (
+                      <div className="no-phone">"No phone"</div>
+                    ) : (
+                      cust.phone
+                    )}
+                  </td>
+                  <td>{cust.address.city}</td>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     );
