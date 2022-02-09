@@ -77,10 +77,10 @@ class MainContent extends Component {
                   <td>{cust.id}</td>
                   <td>{cust.name}</td>
                   <td>
-                    {cust.phone == null || cust.phone === "" ? (
-                      <div className="no-phone">"No phone"</div>
-                    ) : (
+                    {cust.phone ? (
                       cust.phone
+                    ) : (
+                      <div className="no-phone">"No phone"</div>
                     )}
                   </td>
                   <td>{cust.address.city}</td>
