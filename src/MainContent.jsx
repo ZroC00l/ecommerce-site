@@ -58,6 +58,9 @@ class MainContent extends Component {
           <button className="btn btn-info" onClick={this.onRefreshClick}>
             Refresh
           </button>
+          <button className="btn btn-warning m-2" onClick={this.onReturnClick}>
+            Return
+          </button>
         </h4>
 
         <table className="table">
@@ -95,7 +98,13 @@ class MainContent extends Component {
 
   onRefreshClick = () => {
     this.setState({
-      customersCount: 6,
+      customersCount: this.state.customersCount + 1,
+    });
+  };
+
+  onReturnClick = () => {
+    this.setState({
+      customersCount: this.state.customersCount - 1,
     });
   };
 }
