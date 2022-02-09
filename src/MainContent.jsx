@@ -79,13 +79,7 @@ class MainContent extends Component {
                 <tr key={cust.id}>
                   <td>{cust.id}</td>
                   <td>{cust.name}</td>
-                  <td>
-                    {cust.phone ? (
-                      cust.phone
-                    ) : (
-                      <div className="no-phone">"No phone"</div>
-                    )}
-                  </td>
+                  <td>{this.getPhoneToRender()}</td>
                   <td>{cust.address.city}</td>
                 </tr>
               );
@@ -106,6 +100,23 @@ class MainContent extends Component {
     this.setState({
       customersCount: this.state.customersCount - 1,
     });
+  };
+  /*N>B!!!! Always use arrow head function in react when rendering methods*/
+  getPhoneToRender = (phone) => {
+    /* when you are faced with a complex conditional testing scenario its always best to 
+    parse that conditional formatting into a method then render that specific method, the
+    commented code below is for when the conditional testing is not complex and as such can be parsed 
+    into a single line explicitly where its needed.*/
+    /*{cust.phone ? (
+      cust.phone
+    ) : (
+      <div className="no-phone">"No phone"</div>
+    )}*/
+    if (phone) {
+      return phone;
+    } else {
+      return <div className="no-phone">No phone</div>;
+    }
   };
 }
 
