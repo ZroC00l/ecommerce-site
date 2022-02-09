@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Badge from "react-bootstrap/Badge";
+import MediaQuery from "react-responsive";
 
 class MainContent extends Component {
   /* keyword 'state' is an object that renders data dynamically in real world projects*/
@@ -23,7 +24,7 @@ class MainContent extends Component {
       {
         id: 3,
         name: "Penny",
-        phone: "",
+        phone: null,
         address: { city: "Cape-Town" },
       },
       {
@@ -35,7 +36,7 @@ class MainContent extends Component {
       {
         id: 5,
         name: "Susan",
-        phone: "",
+        phone: null,
         address: { city: "Kimberley" },
       },
       {
@@ -79,7 +80,7 @@ class MainContent extends Component {
                 <tr key={cust.id}>
                   <td>{cust.id}</td>
                   <td>{cust.name}</td>
-                  <td>{this.getPhoneToRender()}</td>
+                  <td>{this.getPhoneToRender(cust.phone)}</td>
                   <td>{cust.address.city}</td>
                 </tr>
               );

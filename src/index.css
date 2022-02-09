@@ -8,6 +8,15 @@
 
 .no-phone {
   background-color: red;
-  width: 20%;
   padding: 0.2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .no-phone {
+    width: 40%;
+    background-color: blue;
+    padding: 0.1rem;
+    text-align: center;
+  }
 }
