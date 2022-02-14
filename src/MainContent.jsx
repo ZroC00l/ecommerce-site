@@ -122,7 +122,7 @@ class MainContent extends Component {
           <td>
             <img alt="user-pic" src={cust.photo} />
           </td>
-          <td style={this.getConditionalColor(cust.name)}>{cust.name}</td>
+          <td className={this.getConditionalColor(cust.name)}>{cust.name}</td>
           <td>{this.getPhoneToRender(cust.phone)}</td>
           <td>{cust.address.city}</td>
         </tr>
@@ -132,11 +132,11 @@ class MainContent extends Component {
 
   getConditionalColor = (CustomerName) => {
     if (CustomerName.startsWith("S")) {
-      return { backgroundColor: "pink" };
+      return "pink-highlight";
     } else if (CustomerName.startsWith("J")) {
-      return { backgroundColor: "greenyellow" };
+      return "greenyellow-highlight";
     } else {
-      return { backgroundColor: "orange" };
+      return "";
     }
   };
 }

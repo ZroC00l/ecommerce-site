@@ -20,3 +20,13 @@
     text-align: center;
   }
 }
+
+.pink-highlight {
+  color: pink;
+  font-size: 40px;
+}
+
+.greenyellow-highlight {
+  color: greenyellow;
+  font-size: 40px;
+}
