@@ -14,36 +14,42 @@ class MainContent extends Component {
         name: "Jane",
         phone: "788 - 2221",
         address: { city: "Pretoria" },
+        photo: "https://picsum.photos/id/1010/60",
       },
       {
         id: 2,
         name: "James",
         phone: "789 - 2222",
         address: { city: "Johannesburg" },
+        photo: "https://picsum.photos/id/1011/60",
       },
       {
         id: 3,
         name: "Penny",
         phone: null,
         address: { city: "Cape-Town" },
+        photo: "https://picsum.photos/id/1012/60",
       },
       {
         id: 4,
         name: "Paul",
         phone: "791 - 3321",
         address: { city: "Polokwane" },
+        photo: "https://picsum.photos/id/1013/60",
       },
       {
         id: 5,
         name: "Susan",
         phone: null,
         address: { city: "Kimberley" },
+        photo: "https://picsum.photos/id/1014/60",
       },
       {
         id: 6,
         name: "Julian",
         phone: "",
         address: { city: "Durban" },
+        photo: "https://picsum.photos/id/1015/60",
       },
     ],
   };
@@ -73,7 +79,6 @@ class MainContent extends Component {
               <td>City</td>
             </tr>
           </thead>
-
           <tbody> {this.getCustomerRow()}</tbody>
         </table>
       </div>
@@ -114,6 +119,9 @@ class MainContent extends Component {
       return (
         <tr key={cust.id}>
           <td>{cust.id}</td>
+          <td>
+            <img alt="user-pic" src={cust.photo} />
+          </td>
           <td>{cust.name}</td>
           <td>{this.getPhoneToRender(cust.phone)}</td>
           <td>{cust.address.city}</td>
