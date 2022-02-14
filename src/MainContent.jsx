@@ -42,7 +42,7 @@ class MainContent extends Component {
       {
         id: 6,
         name: "Julian",
-        phone: null,
+        phone: "",
         address: { city: "Durban" },
       },
     ],
@@ -74,18 +74,7 @@ class MainContent extends Component {
             </tr>
           </thead>
 
-          <tbody>
-            {this.state.customers.map((cust) => {
-              return (
-                <tr key={cust.id}>
-                  <td>{cust.id}</td>
-                  <td>{cust.name}</td>
-                  <td>{this.getPhoneToRender(cust.phone)}</td>
-                  <td>{cust.address.city}</td>
-                </tr>
-              );
-            })}
-          </tbody>
+          <tbody> {this.getCustomerRow()}</tbody>
         </table>
       </div>
     );
@@ -118,6 +107,19 @@ class MainContent extends Component {
     } else {
       return <div className="no-phone">No phone</div>;
     }
+  };
+
+  getCustomerRow = () => {
+    return this.state.customers.map((cust) => {
+      return (
+        <tr key={cust.id}>
+          <td>{cust.id}</td>
+          <td>{cust.name}</td>
+          <td>{this.getPhoneToRender(cust.phone)}</td>
+          <td>{cust.address.city}</td>
+        </tr>
+      );
+    });
   };
 }
 
