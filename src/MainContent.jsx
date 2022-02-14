@@ -115,12 +115,22 @@ class MainContent extends Component {
   };
 
   getCustomerRow = () => {
-    return this.state.customers.map((cust) => {
+    return this.state.customers.map((cust, index) => {
       return (
         <tr key={cust.id}>
           <td>{cust.id}</td>
           <td>
             <img alt="user-pic" src={cust.photo} />
+            <div>
+              <button
+                className="btn btn-small btn-secondary"
+                onClick={() => {
+                  this.onChangePicture(cust, index);
+                }}
+              >
+                Change Picture
+              </button>
+            </div>
           </td>
           <td className={this.getConditionalColor(cust.name)}>{cust.name}</td>
           <td>{this.getPhoneToRender(cust.phone)}</td>
@@ -132,12 +142,20 @@ class MainContent extends Component {
 
   getConditionalColor = (CustomerName) => {
     if (CustomerName.startsWith("S")) {
-      return "pink-highlight";
+      return "pink-highlight"; /* calling the style using className notation from the index.css file*/
     } else if (CustomerName.startsWith("J")) {
       return "greenyellow-highlight";
     } else {
       return "";
     }
+  };
+
+  onChangePicture = (cust, index) => {
+    /* updating the state of an array object using the setState method*/
+    var cusArr = this.state.customers;
+    cusArr[index].photo = "https://picsum.photos/id/104/60";
+
+    this.setState({ customers: cusArr });
   };
 }
 
