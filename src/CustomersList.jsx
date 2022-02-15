@@ -74,6 +74,7 @@ class MainContent extends Component {
           <thead>
             <tr>
               <td>#</td>
+              <td>Photo</td>
               <td>Name</td>
               <td>Phone</td>
               <td>City</td>
@@ -150,6 +151,8 @@ class MainContent extends Component {
     }
   };
 
+  /* dynamically updates the picture when button is clicked
+  Recieves the customer obejct and index of the currently clicked customer*/
   onChangePicture = (cust, index) => {
     /* updating the state of an array object using the setState method*/
     var cusArr = this.state.customers;
