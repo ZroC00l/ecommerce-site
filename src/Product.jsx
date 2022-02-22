@@ -20,10 +20,22 @@ class Product extends Component {
           {/*Card body ends here*/}
           <div className="card-footer">
             <span className="float-left">
-              <span className="badge">{this.state.product.quantity}</span>
+              <span className="badge text-info">
+                {this.state.product.quantity}
+              </span>
               <div class="btn-group">
-                <button className="btn btn-outline-success">+</button>
-                <button className="btn btn-outline-success">-</button>
+                <button
+                  className="btn btn-outline-success"
+                  onClick={this.props.onIncrement}
+                >
+                  +
+                </button>
+                <button
+                  className="btn btn-outline-success"
+                  onClick={this.props.onDecrement}
+                >
+                  -
+                </button>
               </div>
             </span>
             {/*float left ends here*/}
