@@ -36,15 +36,33 @@ class ShoppingCart extends Component {
       </div>
     );
   }
-  handleIncrement = () => {
+  handleIncrement = (product) => {
+    //console.log("handleIncrement", product);
+    /* copy the products array into a temp array*/
+    let allProducts = [...this.state.products];
+
+    let index = allProducts.indexOf(product);
+    //console.log(allProducts[index]);
+    allProducts[index].quantity++;
+
     this.setState({
-      quantity: this.state.quantity + 1,
+      products: allProducts,
     });
   };
 
-  handleDecrement = () => {
+  handleDecrement = (product) => {
+    //console.log("handle Decrement", product);
+
+    let allProducts = [...this.state.products];
+
+    let index = allProducts.indexOf(product);
+
+    allProducts[index].quantity--;
+
+    if (allProducts[index].quantity < 0) return; //Do nothing if count is less than zero
+
     this.setState({
-      quantity: this.state.quantity - 1,
+      products: allProducts,
     });
   };
 }
