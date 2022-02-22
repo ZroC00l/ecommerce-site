@@ -59,8 +59,6 @@ class ShoppingCart extends Component {
 
     allProducts[index].quantity--;
 
-    if (allProducts[index].quantity < 0) return; //Do nothing if count is less than zero
-
     this.setState({
       products: allProducts,
     });
