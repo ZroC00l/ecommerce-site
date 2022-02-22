@@ -36,28 +36,31 @@ class ShoppingCart extends Component {
       </div>
     );
   }
-  handleIncrement = (product) => {
-    //console.log("handleIncrement", product);
+  handleIncrement = (product, maxValue) => {
     /* copy the products array into a temp array*/
     let allProducts = [...this.state.products];
 
     let index = allProducts.indexOf(product);
-    //console.log(allProducts[index]);
-    allProducts[index].quantity++;
 
+    /*Don't increment quantity above the set maxValue condition*/
+    if (allProducts[index].quantity < maxValue) {
+      allProducts[index].quantity++;
+    }
+
+    //Update the state of the current component(parent component)
     this.setState({
       products: allProducts,
     });
   };
 
-  handleDecrement = (product) => {
-    //console.log("handle Decrement", product);
-
+  handleDecrement = (product, minValue) => {
     let allProducts = [...this.state.products];
 
     let index = allProducts.indexOf(product);
-
-    allProducts[index].quantity--;
+    /*Don't decrement the quantity below the minValue condition*/
+    if (allProducts[index].quantity > minValue) {
+      allProducts[index].quantity--;
+    }
 
     this.setState({
       products: allProducts,
