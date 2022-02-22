@@ -20,7 +20,7 @@ class Product extends Component {
           {/*Card body ends here*/}
           <div className="card-footer">
             <span className="float-left">
-              <span className="badge text-info">
+              <span className="badge text-dark">
                 {this.state.product.quantity}
               </span>
               <div class="btn-group">
