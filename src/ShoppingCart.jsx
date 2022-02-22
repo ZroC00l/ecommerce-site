@@ -9,6 +9,7 @@ class ShoppingCart extends Component {
       { id: 3, productName: "Adidas boots", price: 1500, quantity: 0 },
       { id: 4, productName: "Reebook runners", price: 1450, quantity: 0 },
       { id: 5, productName: "Asics trainers", price: 1350, quantity: 0 },
+      { id: 6, productName: "Ellese trainers", price: 1400, quantity: 0 },
     ],
   };
   render() {
@@ -18,7 +19,11 @@ class ShoppingCart extends Component {
 
         <div className="row">
           {this.state.products.map((prod) => {
-            return <Product key={prod.id} product={prod} />;
+            return (
+              <Product key={prod.id} product={prod}>
+                <button className="btn btn-primary">Buy Now</button>
+              </Product>
+            );
           })}
         </div>
       </div>
