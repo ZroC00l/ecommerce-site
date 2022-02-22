@@ -30,3 +30,7 @@
   color: greenyellow;
   font-size: 40px;
 }
+
+#myButton {
+  float: right;
+}

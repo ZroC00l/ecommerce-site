@@ -21,7 +21,9 @@ class ShoppingCart extends Component {
           {this.state.products.map((prod) => {
             return (
               <Product key={prod.id} product={prod}>
-                <button className="btn btn-primary">Buy Now</button>
+                <button id="myButton" className="btn btn-primary">
+                  Buy Now
+                </button>
               </Product>
             );
           })}

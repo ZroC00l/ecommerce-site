@@ -18,16 +18,16 @@ class Product extends Component {
             <div> R{this.state.product.price}</div>
           </div>
           {/*Card body ends here*/}
-          <div className="card-footer text-right">
-            <div className="float-left">
+          <div className="card-footer">
+            <span className="float-left">
               <span className="badge">{this.state.product.quantity}</span>
               <div class="btn-group">
                 <button className="btn btn-outline-success">+</button>
                 <button className="btn btn-outline-success">-</button>
               </div>
-            </div>
+            </span>
             {/*float left ends here*/}
-            <div className="float-right">{this.props.children}</div>
+            <span className="float-right">{this.props.children}</span>
           </div>
           {/*card footer ends her*/}
         </div>
