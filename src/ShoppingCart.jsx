@@ -2,17 +2,23 @@ import { Component } from "react";
 import Product from "./Product";
 
 class ShoppingCart extends Component {
-  state = {
-    products: [
-      { id: 1, productName: "Nike boots", price: 800, quantity: 0 },
-      { id: 2, productName: "Converse boots", price: 1000, quantity: 0 },
-      { id: 3, productName: "Adidas boots", price: 1500, quantity: 0 },
-      { id: 4, productName: "Reebook runners", price: 1450, quantity: 0 },
-      { id: 5, productName: "Asics trainers", price: 1350, quantity: 0 },
-      { id: 6, productName: "Ellese trainers", price: 1400, quantity: 0 },
-    ],
-  };
+  constructor(props) {
+    console.log("constructor of shopping cart");
+    super(props);
+    this.state = {
+      products: [
+        { id: 1, productName: "Nike boots", price: 800, quantity: 0 },
+        { id: 2, productName: "Converse boots", price: 1000, quantity: 0 },
+        { id: 3, productName: "Adidas boots", price: 1500, quantity: 0 },
+        { id: 4, productName: "Reebook runners", price: 1450, quantity: 0 },
+        { id: 5, productName: "Asics trainers", price: 1350, quantity: 0 },
+        { id: 6, productName: "Ellese trainers", price: 1400, quantity: 0 },
+      ],
+    };
+  }
+
   render() {
+    console.log("render method of shopping cart");
     return (
       <div className="container-fluid">
         <h4>Shopping Cart</h4>
@@ -37,6 +43,34 @@ class ShoppingCart extends Component {
       </div>
     );
   }
+
+  //Executes only after constructor and render methods have been executed(includes life cycle of child components if there any)
+  componentDidMount() {
+    //not going to write any code for now cause we are not making any http requests
+    console.log("component mount in the shopping cart component ");
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(
+      "componentUpdate - Shopping Cart",
+      prevProps,
+      prevState,
+      this.props,
+      this.state
+    );
+
+    /*Always make sure you make http requests conditionally and not uncondtionally to avoid performance issues,
+    making them unconditionally leads to the update method being executed in each change of the state and props for each button click*/
+
+    /*if (prevProps.x !== prevState.x) {
+      //make http call
+    }*/
+  }
+
+  componentWillUnmount() {
+    console.log("Component Unmount - Shopping Cart");
+  }
+
   handleIncrement = (product, maxValue) => {
     /* copy the products array into a temp array*/
     let allProducts = [...this.state.products];

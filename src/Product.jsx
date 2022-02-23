@@ -1,10 +1,17 @@
 import { Component } from "react";
 
 class Product extends Component {
-  state = {
-    product: this.props.product,
-  };
+  constructor() {
+    console.log("Product Component constructor");
+    super();
+
+    this.state = {
+      product: this.props.product,
+    };
+  }
+
   render() {
+    console.log("Render method of PRoduct component");
     return (
       <div className="col-lg-6">
         <div className="card m-2">
@@ -60,6 +67,17 @@ class Product extends Component {
         </div>
       </div>
     );
+  }
+  componentDidMount() {
+    console.log("ComponentDidMount - Product component");
+  }
+
+  componentDidUpdate() {
+    console.log("ComponentDidUpdate - Product component");
+  }
+  componentWillUnmount() {
+    console.log("Component Unmount - Product Cart");
+    //Here you can write code to cancel http requests if there any
   }
 }
 export default Product;
