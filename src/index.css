@@ -34,3 +34,7 @@
 #myButton {
   float: right;
 }
+
+.hand-icon {
+  cursor: pointer;
+}
