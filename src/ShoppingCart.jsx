@@ -73,10 +73,12 @@ class ShoppingCart extends Component {
 
     let index = allProducts.indexOf(product);
 
-    allProducts.splice(index, 1);
-    this.setState({
-      products: allProducts,
-    });
+    if (window.confirm("Are you sure you want to remove?")) {
+      allProducts.splice(index, 1);
+      this.setState({
+        products: allProducts,
+      });
+    }
   };
 }
 
