@@ -25,6 +25,7 @@ class ShoppingCart extends Component {
                 product={prod}
                 onIncrement={this.handleIncrement}
                 onDecrement={this.handleDecrement}
+                onDelete={this.handleDelete}
               >
                 <button id="myButton" className="btn btn-primary">
                   Buy Now
@@ -62,6 +63,17 @@ class ShoppingCart extends Component {
       allProducts[index].quantity--;
     }
 
+    this.setState({
+      products: allProducts,
+    });
+  };
+
+  handleDelete = (product) => {
+    let allProducts = [...this.state.products];
+
+    let index = allProducts.indexOf(product);
+
+    allProducts.splice(index, 1);
     this.setState({
       products: allProducts,
     });
